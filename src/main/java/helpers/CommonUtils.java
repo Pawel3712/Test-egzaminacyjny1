@@ -42,5 +42,21 @@ public class CommonUtils {
     public static String getHref(By locator){
         return getWait().until(ExpectedConditions.presenceOfElementLocated(locator)).getAttribute("href");
     }
-
+    public static boolean isDisplayed(By locator){
+        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator)).isDisplayed();
+    }
+    public static boolean isEnabled(By locator){
+        return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator)).isEnabled();
+    }
+    public static void typeIfEmptyInput(By locator, String text){
+        if(driver.findElement(locator).getAttribute("value").isEmpty()){
+            type(locator, text);
+        }
+    }
+    public static void clearAndTypeIfNotEmptyInput(By locator, String text){
+        if(!driver.findElement(locator).getAttribute("value").isEmpty()){
+            driver.findElement(locator).clear();
+            type(locator, text);
+        }
+    }
 }
