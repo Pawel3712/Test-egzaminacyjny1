@@ -1,5 +1,5 @@
 Feature: TestCase001
-  Scenario: Add product to a basket
+  Scenario: Add product to a basket and go to payment
     Given I open shop website
     When I open first category
     And I choose second product
