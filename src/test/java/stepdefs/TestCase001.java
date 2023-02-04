@@ -14,11 +14,11 @@ public class TestCase001 {
     }
     @When("I open first category")
     public void iOpenFirstCategory() {
-        ShopHomePage.selectFirsCategory(1);
+        ShopHomePage.openCategory(1);
     }
     @And("I choose second product")
     public void iChooseSecondProduct() {
-        BasicProductSide.openBasicProductSide(2);
+        CategoryPage.openProductSite(2);
     }
     @And("I click Add to basket button")
     public void iClickAddToBasketButton() {
@@ -38,7 +38,7 @@ public class TestCase001 {
     }
     @And("Enter your first and last name")
     public void enterYourFirstAndLastName() {
-        PaymentDetailsPage.fristName();
+        PaymentDetailsPage.firstName();
         PaymentDetailsPage.lastName();
     }
     @And("Check Selected Country")
@@ -47,19 +47,19 @@ public class TestCase001 {
     }
     @And("Complete the address fields")
     public void completeTheAddressFields() {
-        PaymentDetailsPage.addres();
-        PaymentDetailsPage.code();
-        PaymentDetailsPage.city();
+        PaymentDetailsPage.fillAddres();
+        PaymentDetailsPage.fillCode();
+        PaymentDetailsPage.enterCity();
     }
 
     @And("Add phone number")
     public void addPhoneNumber() {
-        PaymentDetailsPage.phone();
+        PaymentDetailsPage.enterPhone();
     }
 
     @And("Add email")
     public void addEmail() {
-        PaymentDetailsPage.email();
+        PaymentDetailsPage.fillEmail();
     }
 
     @And("Click buy and pay")

@@ -9,7 +9,7 @@ public class BasketPage {
     public static void assertBasketProduct(){
         assertTrue(driver.findElement(PRODUCT_BASKET_LINK_SELECTOR).isDisplayed());
         if(driver.findElement(PRODUCT_BASKET_LINK_SELECTOR).isDisplayed()){
-            System.out.println("Product Name: "+"Wartość poniżej 5000 zł netto");
+            System.out.println("Product Name: "+driver.findElement(PRODUCT_BASKET_LINK_SELECTOR).getText());
         }
     }
 

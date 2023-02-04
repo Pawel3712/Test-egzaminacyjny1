@@ -13,7 +13,7 @@ public class ShopHomePage {
      assertEquals("http://mqmvqjrcuo.cfolks.pl/blog/", driver.getCurrentUrl());
  }
 
-    public static void selectFirsCategory(int number) {
+    public static void openCategory(int number) {
     String CATEGORY_URL= getHref(By.xpath("//li[contains(@class,'product-category product')]/a[" + number + "]"));
     driver.get(CATEGORY_URL);
         assertEquals(CATEGORY_URL,driver.getCurrentUrl());

@@ -2,14 +2,15 @@ package pageobjects;
 
 import org.openqa.selenium.By;
 
+import static drivers.DriverFactory.driver;
 import static helpers.CommonUtils.*;
-import static selectors.TestCase001.PaymentDetailsPage.*;
+import static selectors.TestCase001.PaymentDetailsPageSelectors.*;
 import static strings.TestCase001.TestCase001Strings.*;
 
 public class PaymentDetailsPage {
-    public static void fristName() {
-        isDisplayed(FRIST_NAME);
-        typeIfEmptyInput(FRIST_NAME,NAME);
+    public static void firstName() {
+        isDisplayed(FIRST_NAME);
+        typeIfEmptyInput(FIRST_NAME,NAME);
     }
 
     public static void lastName() {
@@ -22,24 +23,24 @@ public class PaymentDetailsPage {
             System.out.println("Selected Country: Polska");
         }
     }
-public static void addres(){
+public static void fillAddres(){
         isDisplayed(ADDRES);
         typeIfEmptyInput(ADDRES,STREAT);
 }
 
-    public static void code() {
+    public static void fillCode() {
         isDisplayed(CODE);
         typeIfEmptyInput(CODE,POSTCODE);
     }
-    public static void city(){
+    public static void enterCity(){
         isDisplayed(CITY_SELECTOR);
         typeIfEmptyInput(CITY_SELECTOR,CITY);
     }
-    public static void phone(){
+    public static void enterPhone(){
         isDisplayed(PHONE_NUMBER_SELECTOR);
         typeIfEmptyInput(PHONE_NUMBER_SELECTOR,PHONE_NUMBER);
     }
-    public static void email(){
+    public static void fillEmail(){
         isDisplayed(E_MAIL);
         typeIfEmptyInput(E_MAIL,MAILADDERS);
     }
@@ -50,7 +51,7 @@ public static void addres(){
     public static void confirmOrder(){
         isDisplayed(ORDER_PLACED);
         if(isDisplayed(ORDER_PLACED)){
-            System.out.println("Dziękujemy. Otrzymaliśmy Twoje zamówienie.");
+            driver.findElement(ORDER_PLACED).getText();
         } else System.out.println("Error: Something went wrong!");
     }
 }
