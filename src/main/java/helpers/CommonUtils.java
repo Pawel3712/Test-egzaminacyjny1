@@ -3,23 +3,23 @@ package helpers;
 import org.openqa.selenium.By;
 import java.text.DecimalFormat;
 import java.time.Duration;
-
-import static drivers.DriverFactory.driver;
 import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import static drivers.DriverFactory.getDriver;
+
 public class CommonUtils {
     public static WebDriverWait getWait() {
-        return new WebDriverWait(driver, Duration.ofSeconds(20));
+        return new WebDriverWait(getDriver(), Duration.ofSeconds(35));
     }
     public static void click(By locator){
-        driver.findElement(locator).click();
+        getWait().until(ExpectedConditions.elementToBeClickable(locator)).click();
     }
     public static void type(By locator,String text){
-        driver.findElement(locator).sendKeys(text);}
+        getDriver().findElement(locator).sendKeys(text);}
     public static void fileUpload(By locator,String FilePatch){
-        driver.findElement(locator).sendKeys(FilePatch);
+        getDriver().findElement(locator).sendKeys(FilePatch);
     }
 
     public static String getRandomNumberBetween(int min, int max) {
@@ -49,13 +49,13 @@ public class CommonUtils {
         return getWait().until(ExpectedConditions.visibilityOfElementLocated(locator)).isEnabled();
     }
     public static void typeIfEmptyInput(By locator, String text){
-        if(driver.findElement(locator).getAttribute("value").isEmpty()){
+        if(getDriver().findElement(locator).getAttribute("value").isEmpty()){
             type(locator, text);
         }
     }
     public static void clearAndTypeIfNotEmptyInput(By locator, String text){
-        if(!driver.findElement(locator).getAttribute("value").isEmpty()){
-            driver.findElement(locator).clear();
+        if(!getDriver().findElement(locator).getAttribute("value").isEmpty()){
+            getDriver().findElement(locator).clear();
             type(locator, text);
         }
     }
